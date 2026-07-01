@@ -61,6 +61,43 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #222;
+      margin-bottom: 1.5rem;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+      color: #555;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+
+    .tab-btn:hover {
+      color: #000;
+    }
+
+    .tab-btn.active {
+      color: #000;
+      font-weight: bold;
+      border-bottom-color: #000;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
   </style>
 </head>
 
@@ -80,12 +117,35 @@
       Live, Pandas of Metal deliver brutal seriousness — no banter, no compromises (at least in theory).
     </p>
     <p>
-      Visit us on:  <a href="https://pandasofmetal.bandcamp.com">pandasofmetal.bandcamp.com</a>
+      Visit us on: <a href="https://pandasofmetal.bandcamp.com" target="_blank" rel="noopener">pandasofmetal.bandcamp.com</a>
     </p>
 
-    <iframe style="border: 0; width: 350px; height: 470px;" 
-    src="https://bandcamp.com/EmbeddedPlayer/album=613799203/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
-    seamless><a href="https://pandasofmetal.bandcamp.com/album/pandas-of-metal">Pandas of Metal by Pandas of Metal</a></iframe>
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-music" id="tab-music">Music</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-merch" id="tab-merch">Merch</button>
+    </nav>
+
+    <div id="panel-music" class="tab-panel active" role="tabpanel" aria-labelledby="tab-music">
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <iframe style="border: 0; width: 350px; height: 470px;"
+          src="https://bandcamp.com/EmbeddedPlayer/album=613799203/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+          seamless><a href="https://pandasofmetal.bandcamp.com/album/pandas-of-metal">Pandas of Metal by Pandas of Metal</a></iframe>
+        <iframe style="border: 0; width: 350px; height: 470px;"
+          src="https://bandcamp.com/EmbeddedPlayer/album=2734769761/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+          seamless><a href="https://pandasofmetal.bandcamp.com/album/drive">Drive von Pandas of Metal</a></iframe>
+      </div>
+    </div>
+
+    <div id="panel-merch" class="tab-panel" role="tabpanel" aria-labelledby="tab-merch">
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:1rem;">
+        <a href="Merch-f.jpg" target="_blank" rel="noopener">
+          <img src="Merch-f.jpg" alt="Pandas of Metal T-Shirt – Front" style="max-width:340px; width:100%; border-radius:4px; cursor:zoom-in;">
+        </a>
+        <a href="Merch-b.jpg" target="_blank" rel="noopener">
+          <img src="Merch-b.jpg" alt="Pandas of Metal T-Shirt – Back" style="max-width:340px; width:100%; border-radius:4px; cursor:zoom-in;">
+        </a>
+      </div>
+    </div>
 
     <h2>Contact</h2>
     <p>
@@ -97,6 +157,23 @@
   <footer>
     © 2026 Pandas of Metal
     </footer>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(function(b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        document.querySelectorAll('.tab-panel').forEach(function(p) {
+          p.classList.remove('active');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById(btn.getAttribute('aria-controls')).classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
