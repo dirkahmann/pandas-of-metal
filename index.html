@@ -281,16 +281,26 @@
     </footer>
 
   <script>
+    var players = Array.prototype.slice.call(document.querySelectorAll('.track audio'));
+
     document.querySelectorAll('.track').forEach(function(track) {
       var player = track.querySelector('audio');
       var download = document.createElement('a');
       var trackName = track.querySelector('span').textContent;
+      var nextPlayer = players[players.indexOf(player) + 1];
       download.className = 'track-download';
       download.href = player.src;
       download.download = '';
       download.textContent = 'Download';
       download.setAttribute('aria-label', 'Download ' + trackName);
       player.after(download);
+
+      if (nextPlayer) {
+        player.addEventListener('ended', function() {
+          nextPlayer.currentTime = 0;
+          nextPlayer.play();
+        });
+      }
     });
 
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
