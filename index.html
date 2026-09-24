@@ -130,7 +130,7 @@
 
     .track {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr) minmax(140px, 1.6fr);
       align-items: center;
       gap: 0.75rem;
       margin-top: 0.5rem;
@@ -157,9 +157,6 @@
         max-width: 220px;
       }
 
-      .track {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
