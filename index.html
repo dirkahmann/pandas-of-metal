@@ -98,6 +98,69 @@
     .tab-panel.active {
       display: block;
     }
+
+    .album-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .album {
+      display: grid;
+      grid-template-columns: minmax(140px, 180px) 1fr;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .album:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .album-cover {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .album h3 {
+      margin: 0 0 0.6rem;
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .track audio {
+      width: 100%;
+      min-width: 0;
+      height: 32px;
+    }
+
+    .section-divider {
+      border: 0;
+      border-top: 1px solid #ddd;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 560px) {
+      .album {
+        grid-template-columns: 1fr;
+      }
+
+      .album-cover {
+        max-width: 220px;
+      }
+
+      .track {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -116,9 +179,6 @@
       Pandas of Metal play metal. Loud and humorless. Cuteness is just a rumor.<br>
       Live, Pandas of Metal deliver brutal seriousness — no banter, no compromises (at least in theory).
     </p>
-    <p>
-      Visit us on <a href="https://pandasofmetal.bandcamp.com" target="_blank" rel="noopener">pandasofmetal.bandcamp.com</a> and save 20% on the complete discography.
-    </p>
 
     <nav class="tabs" role="tablist">
       <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-music" id="tab-music">Music</button>
@@ -126,19 +186,57 @@
     </nav>
 
     <div id="panel-music" class="tab-panel active" role="tabpanel" aria-labelledby="tab-music">
-      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-        <iframe style="border: 0; width: 350px; height: 470px;"
-          src="https://bandcamp.com/EmbeddedPlayer/album=2805789273/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
-          seamless><a href="https://pandasofmetal.bandcamp.com/album/bloody-breeze-single">Bloody Breeze (Single) by Pandas of Metal</a></iframe>
-        <iframe style="border: 0; width: 350px; height: 470px;"
-          src="https://bandcamp.com/EmbeddedPlayer/album=302985969/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
-          seamless><a href="https://pandasofmetal.bandcamp.com/album/breakdown-single">Breakdown (Single) by Pandas of Metal</a></iframe>
-        <iframe style="border: 0; width: 350px; height: 470px;"
-          src="https://bandcamp.com/EmbeddedPlayer/album=2734769761/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
-          seamless><a href="https://pandasofmetal.bandcamp.com/album/drive">Drive von Pandas of Metal</a></iframe>
-        <iframe style="border: 0; width: 350px; height: 470px;"
-          src="https://bandcamp.com/EmbeddedPlayer/album=613799203/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
-          seamless><a href="https://pandasofmetal.bandcamp.com/album/pandas-of-metal">Pandas of Metal by Pandas of Metal</a></iframe>
+      <div class="album-grid">
+        <section class="album" aria-labelledby="album-pandas">
+          <img class="album-cover" src="Pandas of Metal/Pandastone.png" alt="Pandas of Metal album cover">
+          <div>
+            <h3 id="album-pandas">Pandas of Metal</h3>
+            <div class="track"><span>01 Zombie Pigs</span><audio controls preload="none" src="Pandas of Metal/01 Zombie Pigs.wav"></audio></div>
+            <div class="track"><span>02 Antitheses</span><audio controls preload="none" src="Pandas of Metal/02 Antitheses.wav"></audio></div>
+            <div class="track"><span>03 Gone</span><audio controls preload="none" src="Pandas of Metal/03 Gone.wav"></audio></div>
+            <div class="track"><span>04 Up</span><audio controls preload="none" src="Pandas of Metal/04 Up.wav"></audio></div>
+            <div class="track"><span>05 Float</span><audio controls preload="none" src="Pandas of Metal/05 Float.wav"></audio></div>
+            <div class="track"><span>06 Down</span><audio controls preload="none" src="Pandas of Metal/06 Down.wav"></audio></div>
+            <div class="track"><span>07 Experiments</span><audio controls preload="none" src="Pandas of Metal/07 Experiments.wav"></audio></div>
+            <div class="track"><span>08 Switch</span><audio controls preload="none" src="Pandas of Metal/08 Switch.wav"></audio></div>
+            <div class="track"><span>09 Brain</span><audio controls preload="none" src="Pandas of Metal/09 Brain.wav"></audio></div>
+            <div class="track"><span>10 Mass</span><audio controls preload="none" src="Pandas of Metal/10 Mass.wav"></audio></div>
+            <div class="track"><span>11 Effect</span><audio controls preload="none" src="Pandas of Metal/11 Effect.wav"></audio></div>
+            <div class="track"><span>12 Hurt</span><audio controls preload="none" src="Pandas of Metal/12 Hurt.wav"></audio></div>
+            <div class="track"><span>13 Fade</span><audio controls preload="none" src="Pandas of Metal/13 Fade.wav"></audio></div>
+            <div class="track"><span>14 Before</span><audio controls preload="none" src="Pandas of Metal/14 Before.wav"></audio></div>
+            <div class="track"><span>15 End</span><audio controls preload="none" src="Pandas of Metal/15 End.wav"></audio></div>
+            <div class="track"><span>16 Zombie Pigs (speedy version)</span><audio controls preload="none" src="Pandas of Metal/16 Zombie Pigs (speedy version).wav"></audio></div>
+          </div>
+        </section>
+
+        <section class="album" aria-labelledby="album-drive">
+          <img class="album-cover" src="Drive/Drive_1800x1800.png" alt="Drive album cover">
+          <div>
+            <h3 id="album-drive">Drive</h3>
+            <div class="track"><span>01 Drive</span><audio controls preload="none" src="Drive/01 Drive.wav"></audio></div>
+            <div class="track"><span>02 Nightmare</span><audio controls preload="none" src="Drive/02 Nightmare.wav"></audio></div>
+            <div class="track"><span>03 Drive (ambient version)</span><audio controls preload="none" src="Drive/03 Drive (ambient version).wav"></audio></div>
+            <div class="track"><span>04 Switch (saxy version)</span><audio controls preload="none" src="Drive/04 Switch (saxy version).wav"></audio></div>
+          </div>
+        </section>
+
+        <section class="album" aria-labelledby="album-breakdown">
+          <img class="album-cover" src="Breakdown/Pandas_of_Metal_Breakdown_1800.png.png" alt="Breakdown album cover">
+          <div>
+            <h3 id="album-breakdown">Breakdown</h3>
+            <div class="track"><span>01 Breakdown</span><audio controls preload="none" src="Breakdown/01 Breakdown.wav"></audio></div>
+            <div class="track"><span>02 Breakdown (reprise)</span><audio controls preload="none" src="Breakdown/02 Breakdown (reprise).wav"></audio></div>
+          </div>
+        </section>
+
+        <section class="album" aria-labelledby="album-bloody-breeze">
+          <img class="album-cover" src="Bloody Breeze/Bloody Breeze 3000x3000.png" alt="Bloody Breeze album cover">
+          <div>
+            <h3 id="album-bloody-breeze">Bloody Breeze</h3>
+            <div class="track"><span>Bloody Breeze</span><audio controls preload="none" src="Bloody Breeze/Pandas of Metal - Bloody Breeze.wav"></audio></div>
+          </div>
+        </section>
       </div>
     </div>
 
@@ -152,6 +250,8 @@
         </a>
       </div>
     </div>
+
+    <hr class="section-divider">
 
     <h2>Contact</h2>
     <p>
