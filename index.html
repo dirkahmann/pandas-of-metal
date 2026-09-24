@@ -130,7 +130,7 @@
 
     .track {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(140px, 1.6fr);
+      grid-template-columns: minmax(0, 1fr) minmax(140px, 1.6fr) auto;
       align-items: center;
       gap: 0.75rem;
       margin-top: 0.5rem;
@@ -140,6 +140,11 @@
       width: 100%;
       min-width: 0;
       height: 32px;
+    }
+
+    .track-download {
+      color: #222;
+      white-space: nowrap;
     }
 
     .section-divider {
@@ -263,6 +268,18 @@
     </footer>
 
   <script>
+    document.querySelectorAll('.track').forEach(function(track) {
+      var player = track.querySelector('audio');
+      var download = document.createElement('a');
+      var trackName = track.querySelector('span').textContent;
+      download.className = 'track-download';
+      download.href = player.src;
+      download.download = '';
+      download.textContent = 'Download';
+      download.setAttribute('aria-label', 'Download ' + trackName);
+      player.insertAdjacentElement('afterend', download);
+    });
+
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         document.querySelectorAll('.tab-btn').forEach(function(b) {
