@@ -187,10 +187,10 @@
       Live, Pandas of Metal deliver brutal seriousness — no banter, no compromises (at least in theory).
     </p>
 
-    <nav class="tabs" role="tablist">
+    <div class="tabs" role="tablist">
       <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-music" id="tab-music">Music</button>
       <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-merch" id="tab-merch">Merch</button>
-    </nav>
+    </div>
 
     <div id="panel-music" class="tab-panel active" role="tabpanel" aria-labelledby="tab-music">
       <div class="album-grid">
@@ -290,7 +290,7 @@
       download.download = '';
       download.textContent = 'Download';
       download.setAttribute('aria-label', 'Download ' + trackName);
-      player.insertAdjacentElement('afterend', download);
+      player.after(download);
     });
 
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
